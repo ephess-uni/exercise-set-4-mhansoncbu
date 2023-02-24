@@ -11,7 +11,7 @@ FILENAME = get_data_file_path('messages.log')
 
 def get_shutdown_events(logfile):
     """
-    Opens a logfile and returns only entries where a shutdown was initiated.
+    Opens a logfile and returns a count of completed shutdown events.
     """
     logfile = open(FILENAME)
     all_entries = logfile.read()

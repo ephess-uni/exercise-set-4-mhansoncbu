@@ -17,9 +17,17 @@ FILENAME = get_data_file_path("messages.log")
 
 def time_between_shutdowns(logfile):
     """
-    Your docstring here.  Replace the pass keyword below with your implementation.
+    Gets a list of shutdown events from a log file and calculates the time between the first and last shutdown events.
     """
-    pass
+    first_shutdown = (get_shutdown_events(logfile)[0])
+    last_shutdown = (get_shutdown_events(logfile)[-1])
+    first_shutdown_time = str.split(first_shutdown, sep=" ")[1]
+    last_shutdown_time = str.split(last_shutdown, sep=" ")[1]
+    first_shutdown_timestamp = logstamp_to_datetime(first_shutdown_time)
+    last_shutdown_timestamp = logstamp_to_datetime(last_shutdown_time)
+    time_between = last_shutdown_timestamp - first_shutdown_timestamp
+    return time_between
+    
 
 
 # >>>> The code below will call your function and print the results
